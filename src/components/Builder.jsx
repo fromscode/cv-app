@@ -5,10 +5,10 @@ import Education from "./Education";
 import Projects from "./Projects";
 import Skills from "./Skills";
 
-export default function Builder() {
+export default function Builder(props) {
   return (
     <div className="builder">
-      <Personal />
+      <Personal personal={props.personal} onChange={props.onPersonalChange} />
       <Professional />
       <Education />
       <Projects />

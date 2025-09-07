@@ -1,12 +1,10 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./styles/index.css";
-import CV from "./components/CV";
-import Builder from "./components/Builder";
+import App from "./App";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <Builder />
-    <CV />
+    <App />
   </StrictMode>,
 );
