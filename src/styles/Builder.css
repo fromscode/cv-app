@@ -1,4 +1,16 @@
 .builder {
-  background-color: whitesmoke;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   color: black;
+}
+
+.personal,
+.professional,
+.education,
+.projects,
+.skills {
+  background-color: whitesmoke;
+  border-radius: 10px;
+  padding: 0px 20px 20px;
 }
