@@ -9,7 +9,7 @@ export default function Builder(props) {
   return (
     <div className="builder">
       <Personal personal={props.personal} onChange={props.onPersonalChange} />
-      <Professional />
+      <Professional professional={props.professional} />
       <Education />
       <Projects />
       <Skills />
