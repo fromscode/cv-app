@@ -20,19 +20,46 @@ function App() {
   }
 
   function handleProfessional(key, value, id) {
-    if (key === "summary") {
-      setProffesional({ ...professional, summary: value });
-    }
-    if (key === "company") {
-      const newObj = { ...professional };
-      newObj.jobs = newObj.jobs.map((job) => {
-        if (job.id !== id) return job;
-        else {
-          job.companyName = value;
-          return job;
-        }
-      });
-      setProffesional(newObj);
+    switch (key) {
+      case "summary":
+        setProffesional({ ...professional, summary: value });
+        break;
+      case "company": {
+        const newObj = { ...professional };
+        newObj.jobs = newObj.jobs.map((job) => {
+          if (job.id !== id) return job;
+          else {
+            job.companyName = value;
+            return job;
+          }
+        });
+        setProffesional(newObj);
+        break;
+      }
+      case "title": {
+        const newObj = { ...professional };
+        newObj.jobs = newObj.jobs.map((job) => {
+          if (job.id !== id) return job;
+          else {
+            job.jobTitle = value;
+            return job;
+          }
+        });
+        setProffesional(newObj);
+        break;
+      }
+      case "point": {
+        const newObj = { ...professional };
+        newObj.jobs = newObj.jobs.map((job) => {
+          if (job.id !== id) return job;
+          else {
+            job.jobTitle = value;
+            return job;
+          }
+        });
+        setProffesional(newObj);
+        break;
+      }
     }
   }
 

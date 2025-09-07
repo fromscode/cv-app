@@ -34,7 +34,7 @@ function JobList({ jobs }) {
             <div className="jobTitle">{job.jobTitle}</div>
             <ul>
               {job.jobPoints.map((jobPoint) => (
-                <li>{jobPoint}</li>
+                <li>{jobPoint.point}</li>
               ))}
             </ul>
           </div>

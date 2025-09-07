@@ -2,13 +2,22 @@ function JobList({ jobs, onChange }) {
   return jobs.map((job) => {
     return (
       <div className="job" key={job.id}>
-        Company:{" "}
-        <input
-          type="text"
-          value={job.companyName}
-          onChange={(e) => onChange("company", e.target.value, job.id)}
-        />
-        {job.jobTitle}
+        <div>
+          Company:{" "}
+          <input
+            type="text"
+            value={job.companyName}
+            onChange={(e) => onChange("company", e.target.value, job.id)}
+          />
+        </div>
+        <div>
+          Title:
+          <input
+            type="text"
+            value={job.jobTitle}
+            onChange={(e) => onChange("title", e.target.value, job.id)}
+          />
+        </div>
         {job.startDate}
         {job.endDate}
         <JobPoints jobPoints={job.jobPoints} />
@@ -17,8 +26,18 @@ function JobList({ jobs, onChange }) {
   });
 }
 
-function JobPoints({ jobPoints }) {
-  return jobPoints.map((jobPoint) => <li>{jobPoint}</li>);
+function JobPoints({ jobPoints, onChange }) {
+  console.log("points" + jobPoints);
+  return jobPoints.map((jobPoint, index) => (
+    <li key={jobPoint.id}>
+      <span>Job Point {index + 1}</span>
+      <input
+        type="text"
+        value={jobPoint.point}
+        onChange={(e) => onChange("point", e.target.value, jobPoint.id)}
+      />
+    </li>
+  ));
 }
 
 function Summary({ summary, onChange }) {

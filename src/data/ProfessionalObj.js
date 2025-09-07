@@ -9,9 +9,13 @@ const ProfessionalObj = {
       startDate: "Jan-1882",
       endDate: "Dec-1992",
       jobPoints: [
-        "Core maintainer of Jarvis",
-        "Lead development of all blueprints from Mark-4 to Mark-50 end to end",
-        "Built nano-tech suits",
+        { id: crypto.randomUUID(), point: "Core maintainer of Jarvis" },
+        {
+          id: crypto.randomUUID(),
+          point:
+            "Lead development of all blueprints from Mark-4 to Mark-50 end to end",
+        },
+        { id: crypto.randomUUID, point: "Built nano-tech suits" },
       ],
     },
   ],
