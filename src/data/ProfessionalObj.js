@@ -3,6 +3,7 @@ const ProfessionalObj = {
     "Senior Software Engineer with 500 years of experience in various domains.",
   jobs: [
     {
+      id: crypto.randomUUID(),
       companyName: "Stark Industries",
       jobTitle: "Senior Software Engg",
       startDate: "Jan-1882",

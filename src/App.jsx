@@ -19,12 +19,30 @@ function App() {
     });
   }
 
+  function handleProfessional(key, value, id) {
+    if (key === "summary") {
+      setProffesional({ ...professional, summary: value });
+    }
+    if (key === "company") {
+      const newObj = { ...professional };
+      newObj.jobs = newObj.jobs.map((job) => {
+        if (job.id !== id) return job;
+        else {
+          job.companyName = value;
+          return job;
+        }
+      });
+      setProffesional(newObj);
+    }
+  }
+
   return (
     <>
       <Builder
         personal={personal}
         onPersonalChange={handlePersonal}
-        professional={professional} /* onProfessionalChange={handleProfessi} */
+        professional={professional}
+        onProfessionalChange={handleProfessional}
       />
       <CV personal={personal} professional={professional} />
     </>

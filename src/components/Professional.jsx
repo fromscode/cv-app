@@ -1,8 +1,13 @@
-function JobList({ jobs }) {
+function JobList({ jobs, onChange }) {
   return jobs.map((job) => {
     return (
-      <div className="job" key={job.companyName + job.jobTitle}>
-        {job.companyName}
+      <div className="job" key={job.id}>
+        Company:{" "}
+        <input
+          type="text"
+          value={job.companyName}
+          onChange={(e) => onChange("company", e.target.value, job.id)}
+        />
         {job.jobTitle}
         {job.startDate}
         {job.endDate}
