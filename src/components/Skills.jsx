@@ -1,6 +1,6 @@
 function Skill({ key_, value, onChange }) {
   return (
-    <li key={key_}>
+    <li>
       {key_}:
       <input
         type="text"
@@ -14,7 +14,9 @@ function Skill({ key_, value, onChange }) {
 export default function Skills({ skills, onChange, disabled, onShowClick }) {
   const skillList = [];
   for (const [key, value] of Object.entries(skills)) {
-    skillList.push(<Skill key_={key} value={value} onChange={onChange} />);
+    skillList.push(
+      <Skill key={key} key_={key} value={value} onChange={onChange} />,
+    );
   }
   return (
     <div className="skills">

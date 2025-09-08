@@ -53,7 +53,12 @@ export default function Projects({
     <div className="projects">
       <h3>Projects</h3>
       {projects.map((project) => (
-        <Project project={project} onChange={onChange} disabled={disabled} />
+        <Project
+          key={project.id}
+          project={project}
+          onChange={onChange}
+          disabled={disabled}
+        />
       ))}
       <button onClick={() => onShowClick(3)}>Show</button>
     </div>

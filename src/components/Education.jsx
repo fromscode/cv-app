@@ -39,7 +39,14 @@ export default function Education({
     <div className="education">
       <h2>Education</h2>
       {education.map((obj) => {
-        return <School obj={obj} onChange={onChange} disabled={disabled} />;
+        return (
+          <School
+            key={obj.id}
+            obj={obj}
+            onChange={onChange}
+            disabled={disabled}
+          />
+        );
       })}
       <button onClick={() => onShowClick(2)}>Show</button>
     </div>

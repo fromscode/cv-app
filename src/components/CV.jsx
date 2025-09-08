@@ -34,7 +34,7 @@ function JobList({ jobs }) {
             <div className="jobTitle">{job.jobTitle}</div>
             <ul>
               {job.jobPoints.map((jobPoint) => (
-                <li>{jobPoint.point}</li>
+                <li key={jobPoint.id}>{jobPoint.point}</li>
               ))}
             </ul>
           </div>
@@ -59,7 +59,7 @@ function Education({ education }) {
       <h3>Education</h3>
       {education.map((obj) => {
         return (
-          <div>
+          <div key={obj.id}>
             <h5>{obj.schoolName}</h5>
             <p>
               <span>{obj.courseName}</span>
@@ -80,7 +80,7 @@ function Projects({ projects }) {
       <h3>Projects</h3>
       {projects.map((obj) => {
         return (
-          <div>
+          <div key={obj.id}>
             <h5>{obj.projectName}</h5>
             <span>({obj.techStack})</span>
             <p>
