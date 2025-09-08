@@ -20,7 +20,7 @@ function JobList({ jobs, onChange }) {
         </div>
         {job.startDate}
         {job.endDate}
-        <JobPoints jobPoints={job.jobPoints} />
+        <JobPoints jobPoints={job.jobPoints} onChange={onChange} />
       </div>
     );
   });

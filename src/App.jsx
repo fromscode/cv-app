@@ -50,13 +50,14 @@ function App() {
       }
       case "point": {
         const newObj = { ...professional };
-        newObj.jobs = newObj.jobs.map((job) => {
-          if (job.id !== id) return job;
-          else {
-            job.jobTitle = value;
-            return job;
+        outer: for (const job of newObj.jobs) {
+          for (const jobPoint of job.jobPoints) {
+            if (jobPoint.id === id) {
+              jobPoint.point = value;
+              break outer;
+            }
           }
-        });
+        }
         setProffesional(newObj);
         break;
       }
