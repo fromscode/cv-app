@@ -18,7 +18,7 @@ export default function Builder(props) {
         onChange={props.onEducationChange}
       />
       <Projects projects={props.projects} onChange={props.onProjectChange} />
-      <Skills />
+      <Skills skills={props.skills} onChange={props.onSkillChange} />
     </div>
   );
 }

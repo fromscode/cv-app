@@ -99,7 +99,31 @@ function Projects({ projects }) {
   );
 }
 
-export default function CV({ personal, professional, education, projects }) {
+function Skills({ skills }) {
+  const skillList = [];
+  for (const [key, value] of Object.entries(skills)) {
+    skillList.push(
+      <li key={key}>
+        {key}: {value}
+      </li>,
+    );
+  }
+
+  return (
+    <ul>
+      <h3>Skills</h3>
+      {skillList}
+    </ul>
+  );
+}
+
+export default function CV({
+  personal,
+  professional,
+  education,
+  projects,
+  skills,
+}) {
   return (
     <div className="cv">
       <div className="personalCV">
@@ -107,6 +131,7 @@ export default function CV({ personal, professional, education, projects }) {
         <Professional professional={professional} />
         <Education education={education} />
         <Projects projects={projects} />
+        <Skills skills={skills} />
       </div>
     </div>
   );

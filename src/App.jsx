@@ -9,12 +9,14 @@ import PersonalObj from "./data/PersonalObj";
 import ProfessionalObj from "./data/ProfessionalObj";
 import EducationObj from "./data/EducationObj";
 import ProjectObj from "./data/ProjectObj";
+import SkillObj from "./data/SkillObj";
 
 function App() {
   const [personal, setPersonal] = useState(PersonalObj);
   const [professional, setProffesional] = useState(ProfessionalObj);
   const [education, setEducation] = useState(EducationObj);
   const [projects, setProjects] = useState(ProjectObj);
+  const [skills, setSkills] = useState(SkillObj);
 
   function handlePersonal(key, value) {
     setPersonal({
@@ -187,6 +189,12 @@ function App() {
     }
   }
 
+  function handleSkills(key, value) {
+    const newObj = { ...skills };
+    newObj[key] = value;
+    setSkills(newObj);
+  }
+
   return (
     <>
       <Builder
@@ -198,12 +206,15 @@ function App() {
         onEducationChange={handleEducation}
         projects={projects}
         onProjectChange={handleProject}
+        skills={skills}
+        onSkillChange={handleSkills}
       />
       <CV
         personal={personal}
         professional={professional}
         education={education}
         projects={projects}
+        skills={skills}
       />
     </>
   );
