@@ -8,7 +8,7 @@ import Projects from "./Projects";
 import Skills from "./Skills";
 
 export default function Builder(props) {
-  const [index, setIndex] = useState(1);
+  const [index, setIndex] = useState(0);
 
   function handleChange(index) {
     setIndex(index);

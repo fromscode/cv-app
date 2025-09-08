@@ -1,15 +1,15 @@
 import { useState } from "react";
 
-import "./styles/App.css";
+import "../styles/App.css";
 
-import CV from "./components/CV";
-import Builder from "./components/Builder";
+import CV from "./CV";
+import Builder from "./Builder";
 
-import PersonalObj from "./data/PersonalObj";
-import ProfessionalObj from "./data/ProfessionalObj";
-import EducationObj from "./data/EducationObj";
-import ProjectObj from "./data/ProjectObj";
-import SkillObj from "./data/SkillObj";
+import PersonalObj from "../data/PersonalObj";
+import ProfessionalObj from "../data/ProfessionalObj";
+import EducationObj from "../data/EducationObj";
+import ProjectObj from "../data/ProjectObj";
+import SkillObj from "../data/SkillObj";
 
 function App() {
   const [personal, setPersonal] = useState(PersonalObj);

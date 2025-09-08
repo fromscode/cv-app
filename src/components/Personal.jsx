@@ -1,5 +1,4 @@
 function Details({ details, disabled, onChange }) {
-  // console.log(details);
   const detailList = [];
   for (const [key, value] of Object.entries(details)) {
     detailList.push(
