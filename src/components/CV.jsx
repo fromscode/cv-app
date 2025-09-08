@@ -1,7 +1,28 @@
 import "../styles/CV.css";
 
+function Extras({ personal }) {
+  const extraList = [];
+  for (const [key, value] of Object.entries(personal)) {
+    if (["Name", "Phone", "Email", "Linked-in"].includes(key)) continue;
+    extraList.push(
+      <span key={key}>
+        {" "}
+        |{" "}
+        {value.length === 0 ? (
+          key
+        ) : (
+          <a href={value.startsWith("https://") ? value : `https://${value}`}>
+            {key}
+          </a>
+        )}
+      </span>,
+    );
+  }
+
+  return extraList;
+}
+
 function Personal({ personal }) {
-  console.log(personal);
   const personalList = [];
   for (const [key, value] of Object.entries(personal)) {
     personalList.push(
@@ -37,6 +58,7 @@ function Personal({ personal }) {
             Linked-in
           </a>
         </span>
+        <Extras personal={personal} />
       </p>
     </div>
   );

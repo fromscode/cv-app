@@ -18,11 +18,21 @@ function App() {
   const [projects, setProjects] = useState(ProjectObj);
   const [skills, setSkills] = useState(SkillObj);
 
-  function handlePersonal(key, value) {
-    setPersonal({
-      ...personal,
-      [key]: value,
-    });
+  function handlePersonal(key, value, type) {
+    if (type === "normal") {
+      setPersonal({
+        ...personal,
+        [key]: value,
+      });
+    } else if (type === "extra-key") {
+      const tempVal = personal[key];
+      const newObj = { ...personal };
+      delete newObj[key];
+      newObj[value] = tempVal;
+      setPersonal(newObj);
+    } else if (type === "extra-value") {
+      setPersonal({ ...personal, [key]: value });
+    }
   }
 
   function handleProfessional(key, value, id) {
