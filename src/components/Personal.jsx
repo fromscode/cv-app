@@ -1,9 +1,9 @@
-function Details({ details, onChange }) {
+function Details({ details, disabled, onChange }) {
   // console.log(details);
   const detailList = [];
   for (const [key, value] of Object.entries(details)) {
     detailList.push(
-      <div key={key}>
+      <div key={key} style={{ display: disabled ? "none" : null }}>
         <span className="detailHeading">{key}: </span>
         <span className="detailAnswer">
           <input
@@ -19,11 +19,17 @@ function Details({ details, onChange }) {
   return <ul>{detailList}</ul>;
 }
 
-export default function Personal({ personal, onChange }) {
+export default function Personal({
+  personal,
+  onChange,
+  disabled,
+  onShowClick,
+}) {
   return (
     <div className="personal">
       <h3 className="personalHeading">Personal Details</h3>
-      <Details details={personal} onChange={onChange} />
+      <Details details={personal} onChange={onChange} disabled={disabled} />
+      <button onClick={() => onShowClick(0)}>Show</button>
     </div>
   );
 }

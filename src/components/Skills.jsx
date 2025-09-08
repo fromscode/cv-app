@@ -12,7 +12,7 @@ function Skill({ key_, value, onChange }) {
   );
 }
 
-export default function Skills({ skills, onChange }) {
+export default function Skills({ skills, onChange, disabled, onShowClick }) {
   const skillList = [];
   for (const [key, value] of Object.entries(skills)) {
     console.log(typeof key + " " + value);
@@ -21,7 +21,8 @@ export default function Skills({ skills, onChange }) {
   return (
     <div className="skills">
       <h3>Skills</h3>
-      {skillList}
+      <ul style={{ display: disabled ? "none" : null }}>{skillList}</ul>
+      <button onClick={() => onShowClick(4)}>Show</button>
     </div>
   );
 }

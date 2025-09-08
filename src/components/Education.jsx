@@ -1,6 +1,6 @@
-function School({ obj, onChange }) {
+function School({ obj, onChange, disabled }) {
   return (
-    <div className="education">
+    <div className="education" style={{ display: disabled ? "none" : null }}>
       School Name:
       <input
         type="text"
@@ -29,13 +29,19 @@ function School({ obj, onChange }) {
   );
 }
 
-export default function Education({ education, onChange }) {
+export default function Education({
+  education,
+  onChange,
+  disabled,
+  onShowClick,
+}) {
   return (
     <div className="education">
       <h2>Education</h2>
       {education.map((obj) => {
-        return <School obj={obj} onChange={onChange} />;
+        return <School obj={obj} onChange={onChange} disabled={disabled} />;
       })}
+      <button onClick={() => onShowClick(2)}>Show</button>
     </div>
   );
 }

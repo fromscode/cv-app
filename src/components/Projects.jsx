@@ -1,6 +1,6 @@
-function Project({ project, onChange }) {
+function Project({ project, onChange, disabled }) {
   return (
-    <>
+    <div style={{ display: disabled ? "none" : null }}>
       Project Name:{" "}
       <input
         type="text"
@@ -39,17 +39,23 @@ function Project({ project, onChange }) {
           );
         })}
       </ul>
-    </>
+    </div>
   );
 }
 
-export default function Projects({ projects, onChange }) {
+export default function Projects({
+  projects,
+  onChange,
+  disabled,
+  onShowClick,
+}) {
   return (
     <div className="projects">
       <h3>Projects</h3>
       {projects.map((project) => (
-        <Project project={project} onChange={onChange} />
+        <Project project={project} onChange={onChange} disabled={disabled} />
       ))}
+      <button onClick={() => onShowClick(3)}>Show</button>
     </div>
   );
 }

@@ -1,7 +1,11 @@
-function JobList({ jobs, onChange }) {
+function JobList({ jobs, onChange, disabled }) {
   return jobs.map((job) => {
     return (
-      <div className="job" key={job.id}>
+      <div
+        className="job"
+        key={job.id}
+        style={{ display: disabled ? "none" : null }}
+      >
         <div>
           Company:{" "}
           <input
@@ -39,9 +43,13 @@ function JobPoints({ jobPoints, onChange }) {
   ));
 }
 
-function Summary({ summary, onChange }) {
+function Summary({ summary, onChange, disabled }) {
   return (
-    <div className="summaryBuilder" key="summary">
+    <div
+      className="summaryBuilder"
+      key="summary"
+      style={{ display: disabled ? "none" : null }}
+    >
       <span className="summary">Summary</span>
       <textarea
         value={summary}
@@ -51,12 +59,26 @@ function Summary({ summary, onChange }) {
   );
 }
 
-export default function Professional({ professional, onChange }) {
+export default function Professional({
+  professional,
+  onChange,
+  disabled,
+  onShowClick,
+}) {
   return (
     <div className="professional">
       <h3>Professional</h3>
-      <Summary summary={professional.summary} onChange={onChange} />
-      <JobList jobs={professional.jobs} onChange={onChange} />
+      <Summary
+        summary={professional.summary}
+        onChange={onChange}
+        disabled={disabled}
+      />
+      <JobList
+        jobs={professional.jobs}
+        onChange={onChange}
+        disabled={disabled}
+      />
+      <button onClick={() => onShowClick(1)}>Show</button>
     </div>
   );
 }
