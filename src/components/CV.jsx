@@ -1,6 +1,7 @@
 import "../styles/CV.css";
 
 function Personal({ personal }) {
+  console.log(personal);
   const personalList = [];
   for (const [key, value] of Object.entries(personal)) {
     personalList.push(
@@ -10,7 +11,35 @@ function Personal({ personal }) {
     );
   }
 
-  return personalList;
+  return (
+    <div className="personal">
+      <h3 className="name">{personal.Name}</h3>
+      <p className="details">
+        <span className="phone">{personal.Phone} </span>
+        <span className="email">
+          {" "}
+          | <a href={`mailto:${personal.Email}`}> {personal.Email}</a>{" "}
+        </span>
+        <span
+          className="linked-in"
+          style={{ display: personal["Linked-in"] ? null : "none" }}
+        >
+          |{" "}
+          <a
+            href={
+              personal["Linked-in"].startsWith("https://")
+                ? personal["Linked-in"]
+                : `https://${personal["Linked-in"]}`
+            }
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Linked-in
+          </a>
+        </span>
+      </p>
+    </div>
+  );
 }
 
 function Summary({ summary }) {
@@ -126,13 +155,11 @@ export default function CV({
 }) {
   return (
     <div className="cv">
-      <div className="personalCV">
-        <Personal personal={personal} />
-        <Professional professional={professional} />
-        <Education education={education} />
-        <Projects projects={projects} />
-        <Skills skills={skills} />
-      </div>
+      <Personal personal={personal} />
+      <Professional professional={professional} />
+      <Education education={education} />
+      <Projects projects={projects} />
+      <Skills skills={skills} />
     </div>
   );
 }

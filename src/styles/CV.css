@@ -1,9 +1,39 @@
 .cv {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 1.3rem;
   flex: 1;
   background-color: whitesmoke;
-  color: darkblue;
+  color: black;
   box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.2);
 
   min-height: 80vh;
   min-width: 40vw;
+  padding: 20px;
+}
+
+.cv .name,
+.cv .details {
+  margin: 0px;
+}
+
+.cv .details {
+  font-size: 1.2rem;
+}
+
+.cv .name {
+  font-size: 2rem;
+}
+
+.cv .personal {
+  margin: 0px;
+}
+
+a,
+a:hover {
+  color: black;
+  text-decoration: underline;
+}
+
+a:hover {
+  text-decoration: none;
 }
