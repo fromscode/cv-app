@@ -42,6 +42,7 @@ function Extras({ details, disabled, onChange }) {
             onChange={(e) => onChange(key, e.target.value, "extra-value")}
           />
         </span>
+        <button onClick={() => onChange(key, value, "delete")}>Delete</button>
       </div>,
     );
   }
@@ -59,7 +60,12 @@ export default function Personal({
       <h3 className="personalHeading">Personal Details</h3>
       <Details details={personal} onChange={onChange} disabled={disabled} />
       <Extras details={personal} onChange={onChange} disabled={disabled} />
-      <button>Add</button>
+      <button
+        onClick={() => onChange(null, null, "add")}
+        style={{ display: disabled ? "none" : null }}
+      >
+        Add
+      </button>
       <button onClick={() => onShowClick(0)}>Show</button>
     </div>
   );

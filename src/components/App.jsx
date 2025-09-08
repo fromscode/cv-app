@@ -32,6 +32,13 @@ function App() {
       setPersonal(newObj);
     } else if (type === "extra-value") {
       setPersonal({ ...personal, [key]: value });
+    } else if (type === "delete") {
+      const newObj = { ...personal };
+      delete newObj[key];
+      setPersonal(newObj);
+    } else if (type === "add") {
+      const newObj = { ...personal, key: "" };
+      setPersonal(newObj);
     }
   }
 
