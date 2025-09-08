@@ -8,11 +8,13 @@ import Builder from "./components/Builder";
 import PersonalObj from "./data/PersonalObj";
 import ProfessionalObj from "./data/ProfessionalObj";
 import EducationObj from "./data/EducationObj";
+import ProjectObj from "./data/ProjectObj";
 
 function App() {
   const [personal, setPersonal] = useState(PersonalObj);
   const [professional, setProffesional] = useState(ProfessionalObj);
   const [education, setEducation] = useState(EducationObj);
+  const [projects, setProjects] = useState(ProjectObj);
 
   function handlePersonal(key, value) {
     setPersonal({
@@ -119,6 +121,72 @@ function App() {
     }
   }
 
+  function handleProject(key, value, id) {
+    switch (key) {
+      case "name": {
+        setProjects(
+          projects.map((obj) => {
+            if (obj.id !== id) return obj;
+            else {
+              obj.projectName = value;
+              return obj;
+            }
+          }),
+        );
+        break;
+      }
+      case "stack": {
+        setProjects(
+          projects.map((obj) => {
+            if (obj.id !== id) return obj;
+            else {
+              obj.techStack = value;
+              return obj;
+            }
+          }),
+        );
+        break;
+      }
+      case "start": {
+        setProjects(
+          projects.map((obj) => {
+            if (obj.id !== id) return obj;
+            else {
+              obj.startDate = value;
+              return obj;
+            }
+          }),
+        );
+        break;
+      }
+      case "end": {
+        setProjects(
+          projects.map((obj) => {
+            if (obj.id !== id) return obj;
+            else {
+              obj.endDate = value;
+              return obj;
+            }
+          }),
+        );
+        break;
+      }
+      case "point": {
+        const newProj = [...projects];
+        outer: for (const project of newProj) {
+          for (const point of project.points) {
+            if (point.id === id) {
+              point.point = value;
+              break outer;
+            }
+          }
+        }
+
+        setProjects(newProj);
+      }
+    }
+  }
+
   return (
     <>
       <Builder
@@ -128,11 +196,14 @@ function App() {
         onProfessionalChange={handleProfessional}
         education={education}
         onEducationChange={handleEducation}
+        projects={projects}
+        onProjectChange={handleProject}
       />
       <CV
         personal={personal}
         professional={professional}
         education={education}
+        projects={projects}
       />
     </>
   );

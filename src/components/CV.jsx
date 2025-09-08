@@ -74,13 +74,39 @@ function Education({ education }) {
   );
 }
 
-export default function CV({ personal, professional, education }) {
+function Projects({ projects }) {
+  return (
+    <>
+      <h3>Projects</h3>
+      {projects.map((obj) => {
+        return (
+          <div>
+            <h5>{obj.projectName}</h5>
+            <span>({obj.techStack})</span>
+            <p>
+              <span>{obj.startDate}</span>
+              <span>{obj.endDate}</span>
+            </p>
+            <ul>
+              {obj.points.map((point) => (
+                <li key={point.id}>{point.point}</li>
+              ))}
+            </ul>
+          </div>
+        );
+      })}
+    </>
+  );
+}
+
+export default function CV({ personal, professional, education, projects }) {
   return (
     <div className="cv">
       <div className="personalCV">
         <Personal personal={personal} />
         <Professional professional={professional} />
         <Education education={education} />
+        <Projects projects={projects} />
       </div>
     </div>
   );
