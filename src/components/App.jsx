@@ -37,7 +37,7 @@ function App() {
       delete newObj[key];
       setPersonal(newObj);
     } else if (type === "add") {
-      const newObj = { ...personal, key: "" };
+      const newObj = { ...personal, Key: "" };
       setPersonal(newObj);
     }
   }

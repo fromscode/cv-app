@@ -6,6 +6,10 @@
   color: black;
   width: 30vw;
 }
+.builder h3 {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
 
 .personal,
 .professional,
@@ -14,5 +18,5 @@
 .skills {
   background-color: whitesmoke;
   border-radius: 10px;
-  padding: 0px 20px 20px;
+  padding: 10px 20px 20px;
 }

@@ -1,22 +1,27 @@
+import "../styles/personal.css";
+
 function Details({ details, disabled, onChange }) {
   const detailList = [];
   for (const [key, value] of Object.entries(details)) {
     detailList.push(
       <div key={key} style={{ display: disabled ? "none" : null }}>
-        <span className="detailHeading">{key}: </span>
-        <span className="detailAnswer">
-          <input
-            type="text"
-            value={value}
-            onChange={(e) => onChange(key, e.target.value, "normal")}
-          />
-        </span>
+        <label for={key} className="detailHeading">
+          {key}:{" "}
+        </label>
+        <input
+          type="text"
+          name={key}
+          id={key}
+          value={value}
+          onChange={(e) => onChange(key, e.target.value, "normal")}
+          autoComplete="false"
+        />
       </div>,
     );
     if (key === "Linked-in") break;
   }
 
-  return <ul>{detailList}</ul>;
+  return detailList;
 }
 
 function Extras({ details, disabled, onChange }) {
@@ -26,22 +31,25 @@ function Extras({ details, disabled, onChange }) {
     ++index;
     if (["Name", "Phone", "Email", "Linked-in"].includes(key)) continue;
     extraList.push(
-      <div key={index} style={{ display: disabled ? "none" : null }}>
-        <span className="detailHeading">
-          <input
-            type="text"
-            value={key}
-            onChange={(e) => onChange(key, e.target.value, "extra-key")}
-          />
-          :{" "}
-        </span>
-        <span className="detailAnswer">
-          <input
-            type="text"
-            value={value}
-            onChange={(e) => onChange(key, e.target.value, "extra-value")}
-          />
-        </span>
+      <div
+        className="extra"
+        key={index}
+        style={{ display: disabled ? "none" : null }}
+      >
+        <input
+          className="key-field"
+          type="text"
+          name={key}
+          value={key}
+          onChange={(e) => onChange(key, e.target.value, "extra-key")}
+        />
+        <span>: </span>
+        <input
+          type="text"
+          name={key}
+          value={value}
+          onChange={(e) => onChange(key, e.target.value, "extra-value")}
+        />
         <button onClick={() => onChange(key, value, "delete")}>Delete</button>
       </div>,
     );
@@ -58,15 +66,21 @@ export default function Personal({
   return (
     <div className="personal">
       <h3 className="personalHeading">Personal Details</h3>
-      <Details details={personal} onChange={onChange} disabled={disabled} />
-      <Extras details={personal} onChange={onChange} disabled={disabled} />
+      <div className="details">
+        <Details details={personal} onChange={onChange} disabled={disabled} />
+        <Extras details={personal} onChange={onChange} disabled={disabled} />
+      </div>
       <button
+        className="add-btn"
+        type="button"
         onClick={() => onChange(null, null, "add")}
         style={{ display: disabled ? "none" : null }}
       >
         Add
       </button>
-      <button onClick={() => onShowClick(0)}>Show</button>
+      <button type="button" onClick={() => onShowClick(0)} disabled={!disabled}>
+        Show
+      </button>
     </div>
   );
 }
