@@ -53,12 +53,34 @@ function Professional({ professional }) {
   );
 }
 
-export default function CV({ personal, professional }) {
+function Education({ education }) {
+  return (
+    <>
+      <h3>Education</h3>
+      {education.map((obj) => {
+        return (
+          <div>
+            <h5>{obj.schoolName}</h5>
+            <p>
+              <span>{obj.courseName}</span>
+              <span>{obj.grade}</span>
+              <span>{obj.startDate}</span>
+              <span>{obj.endDate}</span>
+            </p>
+          </div>
+        );
+      })}
+    </>
+  );
+}
+
+export default function CV({ personal, professional, education }) {
   return (
     <div className="cv">
       <div className="personalCV">
         <Personal personal={personal} />
         <Professional professional={professional} />
+        <Education education={education} />
       </div>
     </div>
   );

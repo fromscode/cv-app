@@ -7,10 +7,12 @@ import Builder from "./components/Builder";
 
 import PersonalObj from "./data/PersonalObj";
 import ProfessionalObj from "./data/ProfessionalObj";
+import EducationObj from "./data/EducationObj";
 
 function App() {
   const [personal, setPersonal] = useState(PersonalObj);
   const [professional, setProffesional] = useState(ProfessionalObj);
+  const [education, setEducation] = useState(EducationObj);
 
   function handlePersonal(key, value) {
     setPersonal({
@@ -64,6 +66,59 @@ function App() {
     }
   }
 
+  function handleEducation(key, value, id) {
+    switch (key) {
+      case "school": {
+        setEducation(
+          education.map((obj) => {
+            if (obj.id !== id) return obj;
+            else {
+              obj.schoolName = value;
+              return obj;
+            }
+          }),
+        );
+        break;
+      }
+      case "course": {
+        setEducation(
+          education.map((obj) => {
+            if (obj.id !== id) return obj;
+            else {
+              obj.courseName = value;
+              return obj;
+            }
+          }),
+        );
+        break;
+      }
+      case "start": {
+        setEducation(
+          education.map((obj) => {
+            if (obj.id !== id) return obj;
+            else {
+              obj.startDate = value;
+              return obj;
+            }
+          }),
+        );
+        break;
+      }
+      case "end": {
+        setEducation(
+          education.map((obj) => {
+            if (obj.id !== id) return obj;
+            else {
+              obj.endDate = value;
+              return obj;
+            }
+          }),
+        );
+        break;
+      }
+    }
+  }
+
   return (
     <>
       <Builder
@@ -71,8 +126,14 @@ function App() {
         onPersonalChange={handlePersonal}
         professional={professional}
         onProfessionalChange={handleProfessional}
+        education={education}
+        onEducationChange={handleEducation}
       />
-      <CV personal={personal} professional={professional} />
+      <CV
+        personal={personal}
+        professional={professional}
+        education={education}
+      />
     </>
   );
 }

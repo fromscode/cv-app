@@ -27,7 +27,6 @@ function JobList({ jobs, onChange }) {
 }
 
 function JobPoints({ jobPoints, onChange }) {
-  console.log("points" + jobPoints);
   return jobPoints.map((jobPoint, index) => (
     <li key={jobPoint.id}>
       <span>Job Point {index + 1}</span>

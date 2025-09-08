@@ -13,7 +13,10 @@ export default function Builder(props) {
         professional={props.professional}
         onChange={props.onProfessionalChange}
       />
-      <Education />
+      <Education
+        education={props.education}
+        onChange={props.onEducationChange}
+      />
       <Projects />
       <Skills />
     </div>
