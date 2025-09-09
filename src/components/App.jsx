@@ -59,6 +59,30 @@ function App() {
         setProffesional(newObj);
         break;
       }
+      case "startDate": {
+        const newObj = { ...professional };
+        newObj.jobs = newObj.jobs.map((job) => {
+          if (job.id !== id) return job;
+          else {
+            job.startDate = value;
+            return job;
+          }
+        });
+        setProffesional(newObj);
+        break;
+      }
+      case "endDate": {
+        const newObj = { ...professional };
+        newObj.jobs = newObj.jobs.map((job) => {
+          if (job.id !== id) return job;
+          else {
+            job.endDate = value;
+            return job;
+          }
+        });
+        setProffesional(newObj);
+        break;
+      }
       case "title": {
         const newObj = { ...professional };
         newObj.jobs = newObj.jobs.map((job) => {

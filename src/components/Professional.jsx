@@ -3,31 +3,56 @@ import "../styles/professional.css";
 function JobList({ jobs, onChange, disabled }) {
   return jobs.map((job) => {
     return (
-      <div
+      <form
         className="job"
         key={job.id}
         style={{ display: disabled ? "none" : null }}
       >
         <div>
-          Company:{" "}
+          <label htmlFor="company">Company: </label>
           <input
+            id="company"
+            name="company"
             type="text"
+            autoComplete="company"
             value={job.companyName}
             onChange={(e) => onChange("company", e.target.value, job.id)}
           />
         </div>
         <div>
-          Title:
+          <label htmlFor="title">Title:</label>
           <input
             type="text"
+            id="title"
+            name="title"
+            autoComplete="title"
             value={job.jobTitle}
             onChange={(e) => onChange("title", e.target.value, job.id)}
           />
         </div>
-        {job.startDate}
-        {job.endDate}
+        <div>
+          <label htmlFor="startDate">Start Date:</label>
+          <input
+            type="text"
+            id="startDate"
+            name="startDate"
+            autoComplete="startDate"
+            value={job.startDate}
+            onChange={(e) => onChange("startDate", e.target.value, job.id)}
+          />
+
+          <label htmlFor="endDate">End Date:</label>
+          <input
+            type="text"
+            id="endDate"
+            name="endDate"
+            autoComplete="endDate"
+            value={job.endDate}
+            onChange={(e) => onChange("endDate", e.target.value, job.id)}
+          />
+        </div>
         <JobPoints jobPoints={job.jobPoints} onChange={onChange} />
-      </div>
+      </form>
     );
   });
 }
