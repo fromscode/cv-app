@@ -123,6 +123,20 @@ function App() {
         setProffesional(newObj);
         break;
       }
+      case "del-point": {
+        const newObj = { ...professional };
+        for (const job of newObj.jobs) {
+          for (const jobPoint of job.jobPoints) {
+            if (jobPoint.id === id) {
+              job.jobPoints = job.jobPoints.filter(
+                (jobPoint) => jobPoint.id !== id,
+              );
+            }
+          }
+        }
+        setProffesional(newObj);
+        break;
+      }
     }
   }
 

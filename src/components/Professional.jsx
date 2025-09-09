@@ -72,7 +72,11 @@ function JobPoints({ job, onChange }) {
             value={jobPoint.point}
             onChange={(e) => onChange("point", e.target.value, jobPoint.id)}
           />
-          <button className="delete-btn" type="button">
+          <button
+            className="delete-btn"
+            type="button"
+            onClick={() => onChange("del-point", null, jobPoint.id)}
+          >
             Delete
           </button>
         </div>
