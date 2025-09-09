@@ -58,16 +58,25 @@ function JobList({ jobs, onChange, disabled }) {
 }
 
 function JobPoints({ jobPoints, onChange }) {
-  return jobPoints.map((jobPoint, index) => (
-    <li key={jobPoint.id}>
-      <span>Job Point {index + 1}</span>
-      <input
-        type="text"
-        value={jobPoint.point}
-        onChange={(e) => onChange("point", e.target.value, jobPoint.id)}
-      />
-    </li>
-  ));
+  return (
+    <fieldset>
+      <legend>Job Points</legend>
+      {jobPoints.map((jobPoint, index) => (
+        <div key={jobPoint.id}>
+          <label htmlFor={jobPoint.id + ""}>Job Point {index + 1}: </label>
+          <input
+            type="text"
+            id={jobPoint.id + ""}
+            name="jobPoint"
+            autoComplete="jobPoint"
+            value={jobPoint.point}
+            onChange={(e) => onChange("point", e.target.value, jobPoint.id)}
+          />
+          <button type="button">Delete</button>
+        </div>
+      ))}
+    </fieldset>
+  );
 }
 
 function Summary({ summary, onChange, disabled }) {
