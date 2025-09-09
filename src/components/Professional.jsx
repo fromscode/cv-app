@@ -128,7 +128,7 @@ export default function Professional({
       <button
         className="add-btn"
         type="button"
-        /* onClick={() => onChange(null, null, "add")} */
+        onClick={() => onChange("add-exp")}
         style={{ display: disabled ? "none" : null }}
       >
         Add Experience

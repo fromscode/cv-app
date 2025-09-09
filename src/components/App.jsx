@@ -137,6 +137,19 @@ function App() {
         setProffesional(newObj);
         break;
       }
+      case "add-exp": {
+        const newObj = { ...professional };
+        newObj.jobs.push({
+          id: crypto.randomUUID(),
+          companyName: "",
+          jobTitle: "",
+          startDate: "",
+          endDate: "",
+          jobPoints: [],
+        });
+        setProffesional(newObj);
+        break;
+      }
     }
   }
 
