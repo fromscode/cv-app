@@ -1,3 +1,10 @@
+.professional button {
+  margin: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .summaryBuilder {
   display: flex;
   justify-content: center;
@@ -16,4 +23,77 @@
   padding: 5px 5px 5px 10px;
   font-size: 0.9em;
   border-radius: 5px;
+}
+
+.professional form {
+  border: 1px solid black;
+  padding: 10px 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 10px 0px;
+}
+
+.professional form > div {
+  align-items: center;
+  display: flex;
+}
+
+.professional form label {
+  min-width: 100px;
+  font-weight: 600;
+}
+
+.professional .dateDiv input {
+  width: 0%;
+}
+
+.professional form fieldset {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  background-color: aliceblue;
+  position: relative;
+  padding: 30px 0px 10px;
+  border-width: 0.1px;
+  border-radius: 5px;
+  margin: 5px 10px;
+}
+
+.professional form input {
+  display: block;
+}
+
+.professional form fieldset div {
+  display: flex;
+  width: 100%;
+  padding: 0px 5px 0px 10px;
+}
+
+.professional form fieldset label {
+  font-weight: normal;
+}
+
+.professional form div {
+  display: flex;
+  align-items: center;
+}
+
+.professional form fieldset legend {
+  top: 0px;
+  left: 10px;
+  position: absolute;
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
+.professional .delete-btn {
+  margin-left: 10px;
+  background-color: #dc3545;
+}
+
+.professional .buttons {
+  display: flex;
+  justify-content: center;
 }

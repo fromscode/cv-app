@@ -83,7 +83,7 @@ button:disabled {
 }
 
 /* Add button */
-button[type="button"] {
+button {
   margin-top: 12px;
   background-color: #007bff;
   color: white;

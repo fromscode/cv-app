@@ -1,7 +1,7 @@
 .cv {
   font-family: "Times New Roman", Times, serif;
   font-size: 1.3rem;
-  flex: 1;
+  flex: 0 1 0;
   background-color: whitesmoke;
   color: black;
   box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.2);

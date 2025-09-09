@@ -30,7 +30,7 @@ function JobList({ jobs, onChange, disabled }) {
             onChange={(e) => onChange("title", e.target.value, job.id)}
           />
         </div>
-        <div>
+        <div className="dateDiv">
           <label htmlFor="startDate">Start Date:</label>
           <input
             type="text"
@@ -63,7 +63,7 @@ function JobPoints({ job, onChange }) {
       <legend>Job Points</legend>
       {job.jobPoints.map((jobPoint, index) => (
         <div key={jobPoint.id}>
-          <label htmlFor={jobPoint.id + ""}>Job Point {index + 1}: </label>
+          <label htmlFor={jobPoint.id + ""}>Point {index + 1}: </label>
           <input
             type="text"
             id={jobPoint.id + ""}
@@ -125,17 +125,23 @@ export default function Professional({
         onChange={onChange}
         disabled={disabled}
       />
-      <button
-        className="add-btn"
-        type="button"
-        onClick={() => onChange("add-exp")}
-        style={{ display: disabled ? "none" : null }}
-      >
-        Add Experience
-      </button>
-      <button type="button" onClick={() => onShowClick(1)} disabled={!disabled}>
-        Show
-      </button>
+      <div className="buttons">
+        <button
+          className="add-btn"
+          type="button"
+          onClick={() => onChange("add-exp")}
+          style={{ display: disabled ? "none" : null }}
+        >
+          Add Experience
+        </button>
+        <button
+          type="button"
+          onClick={() => onShowClick(1)}
+          disabled={!disabled}
+        >
+          Show
+        </button>
+      </div>
     </div>
   );
 }
