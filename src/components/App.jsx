@@ -108,6 +108,21 @@ function App() {
         setProffesional(newObj);
         break;
       }
+      case "add-point": {
+        const newObj = { ...professional };
+        newObj.jobs = newObj.jobs.map((job) => {
+          if (job.id !== id) return job;
+          else {
+            job.jobPoints.push({
+              id: crypto.randomUUID(),
+              point: "",
+            });
+            return job;
+          }
+        });
+        setProffesional(newObj);
+        break;
+      }
     }
   }
 

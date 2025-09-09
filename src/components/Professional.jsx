@@ -51,17 +51,17 @@ function JobList({ jobs, onChange, disabled }) {
             onChange={(e) => onChange("endDate", e.target.value, job.id)}
           />
         </div>
-        <JobPoints jobPoints={job.jobPoints} onChange={onChange} />
+        <JobPoints job={job} onChange={onChange} />
       </form>
     );
   });
 }
 
-function JobPoints({ jobPoints, onChange }) {
+function JobPoints({ job, onChange }) {
   return (
     <fieldset>
       <legend>Job Points</legend>
-      {jobPoints.map((jobPoint, index) => (
+      {job.jobPoints.map((jobPoint, index) => (
         <div key={jobPoint.id}>
           <label htmlFor={jobPoint.id + ""}>Job Point {index + 1}: </label>
           <input
@@ -72,9 +72,14 @@ function JobPoints({ jobPoints, onChange }) {
             value={jobPoint.point}
             onChange={(e) => onChange("point", e.target.value, jobPoint.id)}
           />
-          <button type="button">Delete</button>
+          <button className="delete-btn" type="button">
+            Delete
+          </button>
         </div>
       ))}
+      <button type="button" onClick={() => onChange("add-point", null, job.id)}>
+        Add point
+      </button>
     </fieldset>
   );
 }
@@ -116,7 +121,17 @@ export default function Professional({
         onChange={onChange}
         disabled={disabled}
       />
-      <button onClick={() => onShowClick(1)}>Show</button>
+      <button
+        className="add-btn"
+        type="button"
+        /* onClick={() => onChange(null, null, "add")} */
+        style={{ display: disabled ? "none" : null }}
+      >
+        Add Experience
+      </button>
+      <button type="button" onClick={() => onShowClick(1)} disabled={!disabled}>
+        Show
+      </button>
     </div>
   );
 }

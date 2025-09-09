@@ -15,7 +15,7 @@ const ProfessionalObj = {
           point:
             "Lead development of all blueprints from Mark-4 to Mark-50 end to end",
         },
-        { id: crypto.randomUUID, point: "Built nano-tech suits" },
+        { id: crypto.randomUUID(), point: "Built nano-tech suits" },
       ],
     },
   ],
