@@ -1,0 +1,19 @@
+.summaryBuilder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.summaryBuilder label {
+  min-width: 100px;
+  font-weight: 600;
+}
+
+.summaryBuilder textarea {
+  flex: 1;
+  overflow: auto;
+  resize: none;
+  padding: 5px 5px 5px 10px;
+  font-size: 0.9em;
+  border-radius: 5px;
+}

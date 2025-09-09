@@ -1,3 +1,5 @@
+import "../styles/professional.css";
+
 function JobList({ jobs, onChange, disabled }) {
   return jobs.map((job) => {
     return (
@@ -50,8 +52,10 @@ function Summary({ summary, onChange, disabled }) {
       key="summary"
       style={{ display: disabled ? "none" : null }}
     >
-      <span className="summary">Summary</span>
+      <label for="summary">Summary: </label>
       <textarea
+        name="summary"
+        id="summary"
         value={summary}
         onChange={(e) => onChange("summary", e.target.value)}
       ></textarea>
@@ -67,7 +71,7 @@ export default function Professional({
 }) {
   return (
     <div className="professional">
-      <h3>Professional</h3>
+      <h3>Professional Details</h3>
       <Summary
         summary={professional.summary}
         onChange={onChange}
