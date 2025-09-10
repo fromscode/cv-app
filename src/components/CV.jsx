@@ -78,12 +78,20 @@ function JobList({ jobs }) {
   return (
     <div className="jobList">
       <h3>Experience</h3>
+      <hr />
       {jobs.map((job) => {
         return (
           <div className="job" key={job.companyName + job.jobTitle}>
             <div className="companyName">{job.companyName}</div>
-            <div className="jobTitle">{job.jobTitle}</div>
-            <ul>
+            <div className="jobTitle">
+              {job.jobTitle}
+              <div className="dates">
+                <div className="start-date">{job.startDate}</div>
+                {job.endDate ? <span>-</span> : null}
+                <div className="end-date">{job.endDate}</div>
+              </div>
+            </div>
+            <ul className="jobPoints">
               {job.jobPoints.map((jobPoint) => (
                 <li key={jobPoint.id}>{jobPoint.point}</li>
               ))}

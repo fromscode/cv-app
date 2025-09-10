@@ -14,6 +14,7 @@
 .cv .name,
 .cv .details {
   margin: 0px;
+  text-align: center;
 }
 
 .cv .details {
@@ -38,9 +39,9 @@ a:hover {
   text-decoration: none;
 }
 
-.cv .summary h3 {
+.cv h3 {
   text-align: left;
-  font-size: 1.4em;
+  font-size: 1.3em;
   font-weight: 700;
   letter-spacing: -1px;
   margin-bottom: -5px;
@@ -56,6 +57,54 @@ a:hover {
 
 .cv .summary p {
   margin-top: 3px;
+  margin-bottom: 5px;
   font-size: 0.95em;
   line-height: 1.2em;
+}
+
+.cv .job {
+  margin-bottom: 10px;
+}
+
+.cv .jobList {
+  text-align: left;
+}
+
+.cv .jobTitle {
+  margin-top: -5px;
+  margin-left: 12px;
+  font-size: 0.95em;
+  opacity: 0.9;
+
+  display: flex;
+}
+
+.cv .jobTitle .dates {
+  margin-left: auto;
+
+  display: flex;
+
+  font-size: 0.9em;
+  letter-spacing: 0.01em;
+}
+
+.cv .jobTitle .dates span {
+  font-weight: 1000;
+  margin: 0px 2px;
+}
+
+.cv .jobTitle .dates span::before {
+  content: "-";
+  margin-right: -2px;
+}
+
+.cv .jobPoints {
+  margin: 5px 0px;
+  line-height: 0.9em;
+  font-size: 0.95em;
+  opacity: 0.9;
+}
+
+.cv .jobPoints li {
+  margin-bottom: 10px;
 }
