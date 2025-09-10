@@ -19,8 +19,17 @@ form.school label {
   font-weight: 600;
 }
 
-form.school .dates input {
+form.school .dates input,
+form.school .grade input {
   width: 0px;
+}
+
+form.school .grade select {
+  display: flex;
+  padding: 5px;
+  font-size: 0.95em;
+  align-self: stretch;
+  border-radius: 5px;
 }
 
 form.school input {

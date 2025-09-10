@@ -27,7 +27,7 @@ function School({ obj, onChange, disabled }) {
           onChange={(e) => onChange("course", e.target.value, obj.id)}
         />
       </div>
-      <div>
+      <div className="grade">
         <label htmlFor="grade">Grade : </label>
         <input
           type="text"
@@ -36,6 +36,18 @@ function School({ obj, onChange, disabled }) {
           value={obj.grade}
           onChange={(e) => onChange("grade", e.target.value, obj.id)}
         />
+        <label htmlFor="grade">Grade Type : </label>
+        <select
+          name="grade-type"
+          id="grade-type"
+          value={obj.gradeType || ""}
+          onChange={(e) => onChange("grade-type", e.target.value, obj.id)}
+        >
+          <option value="">Select</option>
+          <option value="Grade">Grade</option>
+          <option value="GPA">GPA</option>
+          <option value="Percentage">Percentage</option>
+        </select>
       </div>
       <div className="dates">
         <label htmlFor="start">Start Date: </label>

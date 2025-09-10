@@ -124,7 +124,7 @@ function Education({ education }) {
             <p>
               <span className="course">{obj.courseName}</span>
               {obj.grade ? (
-                <span className="grade">{` Grade: ${obj.grade}`}</span>
+                <span className="grade">{` ${obj.gradeType}: ${obj.grade}`}</span>
               ) : null}
               <span className="dates">
                 <span>{obj.startDate}</span>

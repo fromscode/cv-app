@@ -179,6 +179,30 @@ function App() {
         );
         break;
       }
+      case "grade": {
+        setEducation(
+          education.map((obj) => {
+            if (obj.id !== id) return obj;
+            else {
+              obj.grade = value;
+              return obj;
+            }
+          }),
+        );
+        break;
+      }
+      case "grade-type": {
+        setEducation(
+          education.map((obj) => {
+            if (obj.id !== id) return obj;
+            else {
+              obj.gradeType = value;
+              return obj;
+            }
+          }),
+        );
+        break;
+      }
       case "start": {
         setEducation(
           education.map((obj) => {
