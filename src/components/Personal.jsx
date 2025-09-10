@@ -39,15 +39,19 @@ function Extras({ details, disabled, onChange }) {
         <input
           className="key-field"
           type="text"
+          id={index + "key"}
           name={key}
           value={key}
+          placeholder="Add a key"
           onChange={(e) => onChange(key, e.target.value, "extra-key")}
         />
         <span>: </span>
         <input
           type="text"
-          name={key}
+          id={index + "value"}
+          name={value}
           value={value}
+          placeholder="Add a hyperlink"
           onChange={(e) => onChange(key, e.target.value, "extra-value")}
         />
         <button onClick={() => onChange(key, value, "delete")}>Delete</button>
