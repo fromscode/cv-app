@@ -247,8 +247,8 @@ function App() {
     }
   }
 
-  function handleProject(key, value, id) {
-    switch (key) {
+  function handleProject(type, value, id) {
+    switch (type) {
       case "name": {
         setProjects(
           projects.map((obj) => {
@@ -309,6 +309,47 @@ function App() {
         }
 
         setProjects(newProj);
+        break;
+      }
+      case "add": {
+        const newProj = [...projects];
+        newProj.push({
+          id: crypto.randomUUID(),
+          projectName: "",
+          techStack: "",
+          startDate: "",
+          endDate: "",
+          points: [],
+        });
+        setProjects(newProj);
+        break;
+      }
+      case "add-point": {
+        setProjects(
+          projects.map((project) => {
+            if (project.id !== id) return project;
+            else {
+              project.points.push({
+                id: crypto.randomUUID(),
+                point: "",
+              });
+              return project;
+            }
+          }),
+        );
+        break;
+      }
+      case "del-point": {
+        const newProj = [...projects];
+        for (const project of newProj) {
+          project.points = project.points.filter((point) => point.id !== id);
+        }
+        setProjects(newProj);
+        break;
+      }
+      case "del": {
+        setProjects(projects.filter((project) => project.id !== id));
+        break;
       }
     }
   }

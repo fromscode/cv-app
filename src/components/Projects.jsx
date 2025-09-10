@@ -1,45 +1,77 @@
 function Project({ project, onChange, disabled }) {
   return (
-    <div style={{ display: disabled ? "none" : null }}>
-      Project Name:{" "}
-      <input
-        type="text"
-        value={project.projectName}
-        onChange={(e) => onChange("name", e.target.value, project.id)}
-      />
-      Tech Stack:{" "}
-      <input
-        type="text"
-        value={project.techStack}
-        onChange={(e) => onChange("stack", e.target.value, project.id)}
-      />
-      Start-Date:{" "}
-      <input
-        type="text"
-        value={project.startDate}
-        onChange={(e) => onChange("start", e.target.value, project.id)}
-      />
-      End-Date:{" "}
-      <input
-        type="text"
-        value={project.endDate}
-        onChange={(e) => onChange("end", e.target.value, project.id)}
-      />
-      <ul>
+    <form style={{ display: disabled ? "none" : null }}>
+      <div>
+        <label htmlFor="project">Project Name: </label>
+        <input
+          id="project"
+          type="text"
+          value={project.projectName}
+          onChange={(e) => onChange("name", e.target.value, project.id)}
+        />
+      </div>
+      <div>
+        <label htmlFor="stack">Tech Stack: </label>
+        <input
+          id="stack"
+          type="text"
+          value={project.techStack}
+          onChange={(e) => onChange("stack", e.target.value, project.id)}
+        />
+      </div>
+      <div className="dates">
+        <label htmlFor="start">Start-Date: </label>
+        <input
+          id="start"
+          type="text"
+          value={project.startDate}
+          onChange={(e) => onChange("start", e.target.value, project.id)}
+        />
+        <label htmlFor="end">End-Date: </label>
+        <input
+          id="end"
+          type="text"
+          value={project.endDate}
+          onChange={(e) => onChange("end", e.target.value, project.id)}
+        />
+      </div>
+      <fieldset>
+        <legend>Project Points</legend>
         {project.points.map((point, index) => {
           return (
-            <li key={point.id}>
-              Point {index + 1}:
+            <div key={point.id}>
+              <label htmlFor={"point" + index + 1}>Point {index + 1}:</label>
               <input
+                id={"point" + index + 1}
                 type="text"
                 value={point.point}
                 onChange={(e) => onChange("point", e.target.value, point.id)}
               />
-            </li>
+              <button
+                type="button"
+                className="delete-btn"
+                onClick={() => onChange("del-point", null, point.id)}
+              >
+                Delete
+              </button>
+            </div>
           );
         })}
-      </ul>
-    </div>
+        <button
+          type="button"
+          onClick={() => onChange("add-point", null, project.id)}
+        >
+          Add Point
+        </button>
+      </fieldset>
+      <button
+        type="button"
+        className="delete-btn"
+        onClick={() => onChange("del", null, project.id)}
+      >
+        Delete Project
+      </button>
+    </form>
   );
 }
 
@@ -60,7 +92,16 @@ export default function Projects({
           disabled={disabled}
         />
       ))}
-      <button onClick={() => onShowClick(3)}>Show</button>
+      <button
+        style={{ display: disabled ? "none" : null }}
+        type="button"
+        onClick={() => onChange("add", null, null)}
+      >
+        Add Project
+      </button>
+      <button type="button" onClick={() => onShowClick(3)} disabled={!disabled}>
+        Show
+      </button>
     </div>
   );
 }

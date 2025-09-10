@@ -120,5 +120,6 @@ h1 {
 
 #root {
   display: flex;
+  align-items: start;
   gap: 20px;
 }
