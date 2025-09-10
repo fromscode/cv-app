@@ -1,8 +1,10 @@
+import "../styles/projects.css";
+
 function Project({ project, onChange, disabled }) {
   return (
     <form style={{ display: disabled ? "none" : null }}>
       <div>
-        <label htmlFor="project">Project Name: </label>
+        <label htmlFor="project">Name: </label>
         <input
           id="project"
           type="text"
@@ -11,7 +13,7 @@ function Project({ project, onChange, disabled }) {
         />
       </div>
       <div>
-        <label htmlFor="stack">Tech Stack: </label>
+        <label htmlFor="stack">Stack: </label>
         <input
           id="stack"
           type="text"
@@ -20,14 +22,14 @@ function Project({ project, onChange, disabled }) {
         />
       </div>
       <div className="dates">
-        <label htmlFor="start">Start-Date: </label>
+        <label htmlFor="start">Start Date: </label>
         <input
           id="start"
           type="text"
           value={project.startDate}
           onChange={(e) => onChange("start", e.target.value, project.id)}
         />
-        <label htmlFor="end">End-Date: </label>
+        <label htmlFor="end">End Date: </label>
         <input
           id="end"
           type="text"
@@ -64,13 +66,15 @@ function Project({ project, onChange, disabled }) {
           Add Point
         </button>
       </fieldset>
-      <button
-        type="button"
-        className="delete-btn"
-        onClick={() => onChange("del", null, project.id)}
-      >
-        Delete Project
-      </button>
+      <div>
+        <button
+          type="button"
+          className="delete-btn"
+          onClick={() => onChange("del", null, project.id)}
+        >
+          Delete Project
+        </button>
+      </div>
     </form>
   );
 }
@@ -92,16 +96,22 @@ export default function Projects({
           disabled={disabled}
         />
       ))}
-      <button
-        style={{ display: disabled ? "none" : null }}
-        type="button"
-        onClick={() => onChange("add", null, null)}
-      >
-        Add Project
-      </button>
-      <button type="button" onClick={() => onShowClick(3)} disabled={!disabled}>
-        Show
-      </button>
+      <div className="buttons">
+        <button
+          style={{ display: disabled ? "none" : null }}
+          type="button"
+          onClick={() => onChange("add", null, null)}
+        >
+          Add Project
+        </button>
+        <button
+          type="button"
+          onClick={() => onShowClick(3)}
+          disabled={!disabled}
+        >
+          Show
+        </button>
+      </div>
     </div>
   );
 }

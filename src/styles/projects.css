@@ -1,0 +1,80 @@
+.projects form {
+  border: 2px solid black;
+  padding: 10px 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 10px 0px;
+}
+
+.projects form > div {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.projects form label {
+  min-width: 100px;
+  font-weight: 600;
+}
+
+.projects .dates input {
+  width: 0%;
+}
+
+.projects form fieldset {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  background-color: aliceblue;
+  position: relative;
+  padding: 30px 0px 10px;
+  border-width: 0.1px;
+  border-radius: 5px;
+  margin: 5px 10px;
+}
+
+.projects form fieldset div {
+  display: flex;
+  width: 100%;
+  padding: 0px 5px 0px 0px;
+}
+
+.projects form fieldset div:first-of-type {
+  display: flex;
+  width: 100%;
+  margin-top: 10px;
+  padding: 0px 5px 0px 0px;
+}
+
+.projects form fieldset label {
+  font-weight: normal;
+  min-width: 70px;
+}
+
+.projects form div {
+  display: flex;
+  align-items: center;
+}
+
+.projects form fieldset legend {
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  position: absolute;
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
+.projects .delete-btn {
+  margin: 0px;
+  margin-left: 10px;
+  background-color: #dc3545;
+}
+
+.projects .buttons {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
