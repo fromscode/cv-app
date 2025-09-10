@@ -88,12 +88,14 @@ a:hover {
   letter-spacing: 0.01em;
 }
 
-.cv .jobTitle .dates span {
+.cv .jobTitle .dates span,
+.cv .education .dates .dash {
   font-weight: 1000;
   margin: 0px 2px;
 }
 
-.cv .jobTitle .dates span::before {
+.cv .jobTitle .dates span::before,
+.cv .education .dates .dash::before {
   content: "-";
   margin-right: -2px;
 }
@@ -107,4 +109,40 @@ a:hover {
 
 .cv .jobPoints li {
   margin-bottom: 10px;
+}
+
+.cv .education {
+  text-align: left;
+  padding: 0px;
+}
+
+.cv .education h5 {
+  font-size: 1em;
+}
+
+.cv .education p {
+  margin-top: -5px;
+  margin-left: 10px;
+}
+
+.cv .education p {
+  opacity: 0.9;
+  margin-left: auto;
+  display: flex;
+  font-size: 0.9em;
+}
+
+.cv .education p .grade {
+  font-weight: 1000;
+}
+
+.cv .education p .grade::before {
+  content: ", ";
+  font-weight: normal;
+}
+
+.cv .education .dates {
+  margin-left: auto;
+  font-size: 0.9em;
+  letter-spacing: 0.01em;
 }

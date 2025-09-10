@@ -114,22 +114,28 @@ function Professional({ professional }) {
 
 function Education({ education }) {
   return (
-    <>
+    <div className="education">
       <h3>Education</h3>
+      <hr />
       {education.map((obj) => {
         return (
-          <div key={obj.id}>
+          <div className="school" key={obj.id}>
             <h5>{obj.schoolName}</h5>
             <p>
-              <span>{obj.courseName}</span>
-              <span>{obj.grade}</span>
-              <span>{obj.startDate}</span>
-              <span>{obj.endDate}</span>
+              <span className="course">{obj.courseName}</span>
+              {obj.grade ? (
+                <span className="grade">{` Grade: ${obj.grade}`}</span>
+              ) : null}
+              <span className="dates">
+                <span>{obj.startDate}</span>
+                {obj.endDate ? <span className="dash">-</span> : null}
+                <span>{obj.endDate}</span>
+              </span>
             </p>
           </div>
         );
       })}
-    </>
+    </div>
   );
 }
 
