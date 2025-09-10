@@ -153,8 +153,8 @@ function App() {
     }
   }
 
-  function handleEducation(key, value, id) {
-    switch (key) {
+  function handleEducation(type, value, id) {
+    switch (type) {
       case "school": {
         setEducation(
           education.map((obj) => {
@@ -201,6 +201,23 @@ function App() {
             }
           }),
         );
+        break;
+      }
+      case "add": {
+        const newEdu = [...education];
+        newEdu.push({
+          id: crypto.randomUUID(),
+          schoolName: "",
+          courseName: "",
+          grade: "",
+          startDate: "",
+          endDate: "",
+        });
+        setEducation(newEdu);
+        break;
+      }
+      case "del": {
+        setEducation(education.filter((school) => school.id !== id));
         break;
       }
     }
