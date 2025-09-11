@@ -5,7 +5,7 @@ function Details({ details, disabled, onChange }) {
   for (const [key, value] of Object.entries(details)) {
     detailList.push(
       <div key={key} style={{ display: disabled ? "none" : null }}>
-        <label for={key} className="detailHeading">
+        <label htmlFor={key} className="detailHeading">
           {key}:{" "}
         </label>
         <input

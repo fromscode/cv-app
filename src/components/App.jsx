@@ -42,8 +42,8 @@ function App() {
     }
   }
 
-  function handleProfessional(key, value, id) {
-    switch (key) {
+  function handleProfessional(type, value, id) {
+    switch (type) {
       case "summary":
         setProffesional({ ...professional, summary: value });
         break;
@@ -134,6 +134,12 @@ function App() {
             }
           }
         }
+        setProffesional(newObj);
+        break;
+      }
+      case "del-job": {
+        const newObj = { ...professional };
+        newObj.jobs = newObj.jobs.filter((job) => job.id !== id);
         setProffesional(newObj);
         break;
       }

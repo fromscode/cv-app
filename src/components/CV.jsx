@@ -11,7 +11,11 @@ function Extras({ personal }) {
         {value.length === 0 ? (
           key
         ) : (
-          <a href={value.startsWith("https://") ? value : `https://${value}`}>
+          <a
+            href={value.startsWith("https://") ? value : `https://${value}`}
+            target="_blank"
+            rel="noreferer noopener"
+          >
             {key}
           </a>
         )}
@@ -65,17 +69,17 @@ function Personal({ personal }) {
 }
 
 function Summary({ summary }) {
-  return (
+  return summary.length ? (
     <div className="summary">
       <h3>Summary</h3>
       <hr />
       <p>{summary}</p>
     </div>
-  );
+  ) : null;
 }
 
 function JobList({ jobs }) {
-  return (
+  return jobs.length > 0 ? (
     <div className="jobList">
       <h3>Experience</h3>
       <hr />
@@ -100,7 +104,7 @@ function JobList({ jobs }) {
         );
       })}
     </div>
-  );
+  ) : null;
 }
 
 function Professional({ professional }) {
@@ -113,7 +117,7 @@ function Professional({ professional }) {
 }
 
 function Education({ education }) {
-  return (
+  return education.length > 0 ? (
     <div className="education">
       <h3>Education</h3>
       <hr />
@@ -123,24 +127,26 @@ function Education({ education }) {
             <h5>{obj.schoolName}</h5>
             <p>
               <span className="course">{obj.courseName}</span>
-              {obj.grade ? (
-                <span className="grade">{` ${obj.gradeType}: ${obj.grade}`}</span>
-              ) : null}
               <span className="dates">
                 <span>{obj.startDate}</span>
                 {obj.endDate ? <span className="dash">-</span> : null}
                 <span>{obj.endDate}</span>
               </span>
             </p>
+            <p>
+              {obj.grade ? (
+                <span className="grade">{` ${obj.gradeType}: ${obj.grade}`}</span>
+              ) : null}
+            </p>
           </div>
         );
       })}
     </div>
-  );
+  ) : null;
 }
 
 function Projects({ projects }) {
-  return (
+  return projects.length > 0 ? (
     <div className="projects">
       <h3>Projects</h3>
       <hr />
@@ -169,7 +175,7 @@ function Projects({ projects }) {
         );
       })}
     </div>
-  );
+  ) : null;
 }
 
 function Skills({ skills }) {
@@ -177,21 +183,19 @@ function Skills({ skills }) {
   for (const skill of skills) {
     skillList.push(
       <li key={skill.key}>
-        <div>
-          <h5>{skill.key}:</h5>
-          <span> {skill.value}</span>
-        </div>
+        <b>{skill.key}:</b>
+        <span> {skill.value}</span>
       </li>,
     );
   }
 
-  return (
+  return skills.length > 0 ? (
     <div className="skills">
       <h3>Skills</h3>
       <hr />
       <ul className="skill-list">{skillList}</ul>
     </div>
-  );
+  ) : null;
 }
 
 export default function CV({

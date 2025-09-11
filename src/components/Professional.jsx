@@ -52,6 +52,13 @@ function JobList({ jobs, onChange, disabled }) {
           />
         </div>
         <JobPoints job={job} onChange={onChange} />
+        <button
+          type="button"
+          className="delete-btn"
+          onClick={() => onChange("del-job", null, job.id)}
+        >
+          Delete job
+        </button>
       </form>
     );
   });
@@ -95,7 +102,7 @@ function Summary({ summary, onChange, disabled }) {
       key="summary"
       style={{ display: disabled ? "none" : null }}
     >
-      <label for="summary">Summary: </label>
+      <label htmlFor="summary">Summary: </label>
       <textarea
         name="summary"
         id="summary"

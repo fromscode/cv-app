@@ -47,10 +47,6 @@ a:hover {
   margin-bottom: -5px;
 }
 
-.cv .summary hr {
-  color: red;
-}
-
 .cv .summary {
   text-align: left;
 }
@@ -59,6 +55,7 @@ a:hover {
   margin-top: 3px;
   margin-bottom: 5px;
   font-size: 0.95em;
+  opacity: 0.9;
   line-height: 1.2em;
 }
 
@@ -136,12 +133,10 @@ a:hover {
 }
 
 .cv .education p .grade {
+  font-size: 0.95em;
   font-weight: 1000;
-}
-
-.cv .education p .grade::before {
-  content: ", ";
-  font-weight: normal;
+  margin-top: -8px;
+  opacity: 0.9;
 }
 
 .cv .education .dates {
@@ -186,6 +181,11 @@ a:hover {
   margin-bottom: 5px;
 }
 
+.cv .projects .project-points li {
+  line-height: 0.9em;
+  margin: 10px 0px;
+}
+
 .cv .skills {
   padding: 0px;
 }
@@ -208,6 +208,6 @@ a:hover {
   font-size: 0.9em;
 }
 
-.cv .skills span {
+.cv .skills {
   font-size: 0.9em;
 }

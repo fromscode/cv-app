@@ -1,21 +1,21 @@
 const EducationObj = [
   {
     id: crypto.randomUUID(),
-    schoolName: "MIT",
-    courseName: "B sc",
-    grade: "5",
+    schoolName: "Massachusetts Institute of Technology (MIT)",
+    courseName: "Dual Degree (Physics & Electrical Engineering)",
+    grade: "Magna Cum Laude (obviously)",
     gradeType: "Grade",
-    startDate: "Jan-1800",
-    endDate: "Dec-1992",
+    startDate: "Sep-1995",
+    endDate: "May-1999",
   },
   {
     id: crypto.randomUUID(),
-    schoolName: "Starlink",
-    courseName: "B sc",
-    grade: "5",
-    gradeType: "GPA",
-    startDate: "Jan-1800",
-    endDate: "Dec-1992",
+    schoolName: "Stark Academy of Future Technologies (self-founded)",
+    courseName: "Self-taught Advanced Robotics, AI, and Weapons Design",
+    grade: "A+ (According to Me)",
+    gradeType: "Grade",
+    startDate: "Jan-2000",
+    endDate: "Present",
   },
 ];
 
