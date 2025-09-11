@@ -141,18 +141,26 @@ function Education({ education }) {
 
 function Projects({ projects }) {
   return (
-    <>
+    <div className="projects">
       <h3>Projects</h3>
+      <hr />
       {projects.map((obj) => {
         return (
           <div key={obj.id}>
-            <h5>{obj.projectName}</h5>
-            <span>({obj.techStack})</span>
-            <p>
-              <span>{obj.startDate}</span>
-              <span>{obj.endDate}</span>
-            </p>
-            <ul>
+            <div className="title">
+              <h5>{obj.projectName}</h5>
+              <span className="stack">
+                {obj.techStack ? "(" : null}
+                {obj.techStack}
+                {obj.techStack ? ")" : null}
+              </span>
+              <span className="dates">
+                <span>{obj.startDate}</span>
+                {obj.endDate ? <span className="dash">-</span> : null}
+                <span>{obj.endDate}</span>
+              </span>
+            </div>
+            <ul className="project-points">
               {obj.points.map((point) => (
                 <li key={point.id}>{point.point}</li>
               ))}
@@ -160,7 +168,7 @@ function Projects({ projects }) {
           </div>
         );
       })}
-    </>
+    </div>
   );
 }
 
