@@ -357,27 +357,40 @@ function App() {
   function handleSkills(type, key, value) {
     switch (type) {
       case "key": {
-        const newObj = { ...skills };
-        const tempVal = newObj[key];
-        delete newObj[key];
-        newObj[value] = tempVal;
-        setSkills(newObj);
+        setSkills(
+          skills.map((skill) => {
+            if (skill.id !== key) return skill;
+            else {
+              skill.key = value;
+              return skill;
+            }
+          }),
+        );
         break;
       }
       case "change": {
-        const newObj = { ...skills };
-        newObj[key] = value;
-        setSkills(newObj);
+        setSkills(
+          skills.map((skill) => {
+            if (skill.id !== key) return skill;
+            else {
+              skill.value = value;
+              return skill;
+            }
+          }),
+        );
         break;
       }
       case "del": {
-        const newObj = { ...skills };
-        delete newObj[key];
-        setSkills(newObj);
+        setSkills(skills.filter((skill) => skill.id !== key));
         break;
       }
       case "add": {
-        const newObj = { ...skills, "New-Skill": "" };
+        const newObj = [...skills];
+        newObj.push({
+          id: crypto.randomUUID(),
+          key: "",
+          value: "",
+        });
         setSkills(newObj);
         break;
       }

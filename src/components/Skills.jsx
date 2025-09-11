@@ -1,29 +1,28 @@
 import "../styles/skills.css";
 
-function Skill({ index, key_, value, onChange }) {
+function Skill({ skill, onChange }) {
   return (
     <div>
       <input
         className="key-field"
         type="text"
-        id={index + "key"}
-        value={key_}
+        id={skill.id + "key"}
+        value={skill.key}
         placeholder="Add a key"
-        onChange={(e) => onChange("key", key_, e.target.value)}
+        onChange={(e) => onChange("key", skill.id, e.target.value)}
       />
       <span>: </span>
       <input
         type="text"
-        id={index + "value"}
-        name={value}
-        value={value}
+        id={skill.id + "value"}
+        value={skill.value}
         placeholder="Add skills"
-        onChange={(e) => onChange("change", key_, e.target.value)}
+        onChange={(e) => onChange("change", skill.id, e.target.value)}
       />
       <button
         type="button"
         className="delete-btn"
-        onClick={() => onChange("del", key_)}
+        onClick={() => onChange("del", skill.id)}
       >
         Delete
       </button>
@@ -33,17 +32,8 @@ function Skill({ index, key_, value, onChange }) {
 
 export default function Skills({ skills, onChange, disabled, onShowClick }) {
   const skillList = [];
-  let index = 0;
-  for (const [key, value] of Object.entries(skills)) {
-    skillList.push(
-      <Skill
-        index={index++}
-        key={key}
-        key_={key}
-        value={value}
-        onChange={onChange}
-      />,
-    );
+  for (const skill of skills) {
+    skillList.push(<Skill key={skill.id} skill={skill} onChange={onChange} />);
   }
   return (
     <div className="skills">

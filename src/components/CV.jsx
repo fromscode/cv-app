@@ -174,10 +174,10 @@ function Projects({ projects }) {
 
 function Skills({ skills }) {
   const skillList = [];
-  for (const [key, value] of Object.entries(skills)) {
+  for (const skill of skills) {
     skillList.push(
-      <li key={key}>
-        {key}: {value}
+      <li key={skill.key}>
+        {skill.key}: {skill.value}
       </li>,
     );
   }
