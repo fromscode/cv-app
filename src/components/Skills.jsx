@@ -13,6 +13,7 @@ function Skill({ skill, onChange }) {
       />
       <span>: </span>
       <input
+        className="value-field"
         type="text"
         id={skill.id + "value"}
         value={skill.value}
@@ -39,14 +40,18 @@ export default function Skills({ skills, onChange, disabled, onShowClick }) {
     <div className="skills">
       <h3>Skills</h3>
       <form style={{ display: disabled ? "none" : null }}>{skillList}</form>
-      <button
-        style={{ display: disabled ? "none" : null }}
-        type="button"
-        onClick={() => onChange("add")}
-      >
-        Add Skill
-      </button>
-      <button onClick={() => onShowClick(4)}>Show</button>
+      <div className="buttons">
+        <button
+          style={{ display: disabled ? "none" : null }}
+          type="button"
+          onClick={() => onChange("add")}
+        >
+          Add Skill
+        </button>
+        <button disabled={!disabled} onClick={() => onShowClick(4)}>
+          Show
+        </button>
+      </div>
     </div>
   );
 }

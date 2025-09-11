@@ -1,2 +1,26 @@
-.builder .skills {
+.builder .skills form div {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+
+  margin-bottom: 5px;
+}
+
+.builder .skills .delete-btn {
+  margin: 0px;
+}
+
+.builder .skills .key-field {
+  width: 100px;
+  flex: 1;
+}
+
+.builder .skills .value-field {
+  flex: 2;
+}
+
+.builder .buttons {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
 }
