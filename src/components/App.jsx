@@ -354,10 +354,34 @@ function App() {
     }
   }
 
-  function handleSkills(key, value) {
-    const newObj = { ...skills };
-    newObj[key] = value;
-    setSkills(newObj);
+  function handleSkills(type, key, value) {
+    switch (type) {
+      case "key": {
+        const newObj = { ...skills };
+        const tempVal = newObj[key];
+        delete newObj[key];
+        newObj[value] = tempVal;
+        setSkills(newObj);
+        break;
+      }
+      case "change": {
+        const newObj = { ...skills };
+        newObj[key] = value;
+        setSkills(newObj);
+        break;
+      }
+      case "del": {
+        const newObj = { ...skills };
+        delete newObj[key];
+        setSkills(newObj);
+        break;
+      }
+      case "add": {
+        const newObj = { ...skills, "New-Skill": "" };
+        setSkills(newObj);
+        break;
+      }
+    }
   }
 
   return (
