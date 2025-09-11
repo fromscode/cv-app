@@ -183,4 +183,31 @@ a:hover {
   text-align: left;
   opacity: 0.9;
   font-size: 0.95em;
+  margin-bottom: 5px;
+}
+
+.cv .skills {
+  padding: 0px;
+}
+
+.cv .skills ul {
+  text-align: left;
+  line-height: 1.3em;
+  font-size: 0.95em;
+  opacity: 0.9;
+
+  list-style-type: disc;
+}
+
+.cv .skills li div {
+  display: flex;
+}
+
+.cv .skills h5 {
+  margin-right: 5px;
+  font-size: 0.9em;
+}
+
+.cv .skills span {
+  font-size: 0.9em;
 }

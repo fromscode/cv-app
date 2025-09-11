@@ -177,16 +177,20 @@ function Skills({ skills }) {
   for (const skill of skills) {
     skillList.push(
       <li key={skill.key}>
-        {skill.key}: {skill.value}
+        <div>
+          <h5>{skill.key}:</h5>
+          <span> {skill.value}</span>
+        </div>
       </li>,
     );
   }
 
   return (
-    <ul>
+    <div className="skills">
       <h3>Skills</h3>
-      {skillList}
-    </ul>
+      <hr />
+      <ul className="skill-list">{skillList}</ul>
+    </div>
   );
 }
 
