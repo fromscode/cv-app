@@ -21,20 +21,42 @@ function Project({ project, onChange, disabled }) {
           onChange={(e) => onChange("stack", e.target.value, project.id)}
         />
       </div>
-      <div className="dates">
-        <label htmlFor="start">Start Date: </label>
+      <div className="source">
         <input
-          id="start"
+          className="key-field"
           type="text"
-          value={project.startDate}
-          onChange={(e) => onChange("start", e.target.value, project.id)}
+          id="source-key"
+          value={project.sourceKey}
+          onChange={(e) => onChange("source-key", e.target.value, project.id)}
+          placeholder="Github"
         />
-        <label htmlFor="end">End Date: </label>
+        <span>:</span>
         <input
-          id="end"
+          className="value-field"
+          id="source-link"
           type="text"
-          value={project.endDate}
-          onChange={(e) => onChange("end", e.target.value, project.id)}
+          value={project.sourceLink}
+          onChange={(e) => onChange("source-link", e.target.value, project.id)}
+          placeholder="www.github.com/username/repo-name"
+        />
+      </div>
+      <div className="demo">
+        <input
+          className="key-field"
+          type="text"
+          id="demo-key"
+          value={project.demoKey}
+          onChange={(e) => onChange("demo-key", e.target.value, project.id)}
+          placeholder="Live Demo"
+        />
+        <span>:</span>
+        <input
+          className="value-field"
+          id="demo-link"
+          type="text"
+          value={project.demoLink}
+          onChange={(e) => onChange("demo-link", e.target.value, project.id)}
+          placeholder="www.website.com"
         />
       </div>
       <fieldset>

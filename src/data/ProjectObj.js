@@ -3,8 +3,10 @@ const ProjectObj = [
     id: crypto.randomUUID(),
     projectName: "J.A.R.V.I.S.",
     techStack: "AI, ML, NLP, Quantum Computing",
-    // startDate: "Jan-2008",
-    // endDate: "Dec-2015",
+    sourceKey: "GitHub",
+    sourceLink: "www.github.com/ironmantech/jarvis",
+    demoKey: "",
+    demoLink: "",
     points: [
       {
         id: crypto.randomUUID(),
@@ -22,8 +24,10 @@ const ProjectObj = [
     id: crypto.randomUUID(),
     projectName: "Suit (Mark LXXXV)",
     techStack: "Advanced Nanotech., Repulsor Physics, AI & ML",
-    // startDate: "Jan-2017",
-    // endDate: "Apr-2023",
+    sourceKey: "GitHub",
+    sourceLink: "www.github.com/ironmantech/suits",
+    demoKey: "",
+    demoLink: "",
     points: [
       {
         id: crypto.randomUUID(),

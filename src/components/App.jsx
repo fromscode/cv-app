@@ -279,24 +279,48 @@ function App() {
         );
         break;
       }
-      case "start": {
+      case "source-key": {
         setProjects(
           projects.map((obj) => {
             if (obj.id !== id) return obj;
             else {
-              obj.startDate = value;
+              obj.sourceKey = value;
               return obj;
             }
           }),
         );
         break;
       }
-      case "end": {
+      case "source-link": {
         setProjects(
           projects.map((obj) => {
             if (obj.id !== id) return obj;
             else {
-              obj.endDate = value;
+              obj.sourceLink = value;
+              return obj;
+            }
+          }),
+        );
+        break;
+      }
+      case "demo-key": {
+        setProjects(
+          projects.map((obj) => {
+            if (obj.id !== id) return obj;
+            else {
+              obj.demoKey = value;
+              return obj;
+            }
+          }),
+        );
+        break;
+      }
+      case "demo-link": {
+        setProjects(
+          projects.map((obj) => {
+            if (obj.id !== id) return obj;
+            else {
+              obj.demoLink = value;
               return obj;
             }
           }),

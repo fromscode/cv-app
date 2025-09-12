@@ -6,12 +6,6 @@ const SkillObj = [
   },
   {
     id: crypto.randomUUID(),
-    key: "Systems & Tools",
-    value:
-      "Git, GitHub, StarkCloud (private cloud infrastructure I designed when AWS looked slow)",
-  },
-  {
-    id: crypto.randomUUID(),
     key: "Advanced Technologies",
     value:
       "Quantum Computing, AI Architecture, Nanotechnology, Repulsor Physics, Clean Energy Systems",

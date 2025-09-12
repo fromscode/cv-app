@@ -1,14 +1,16 @@
 .cv {
   font-family: "Times New Roman", Times, serif;
-  font-size: 1.3rem;
-  flex: 0 1 0;
+  font-size: 1.2rem;
+  flex: 0 0 0;
   background-color: whitesmoke;
   color: black;
   box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.2);
 
-  min-height: 900px;
-  min-width: 45vw;
+  min-height: 297mm;
+  min-width: 210mm;
   padding: 20px;
+  box-sizing: content-box;
+  align-self: flex-start;
 }
 
 .cv .name,
@@ -141,7 +143,7 @@ a:hover {
 
 .cv .education .dates {
   margin-left: auto;
-  font-size: 0.9em;
+  font-size: 0.95em;
   letter-spacing: 0.01em;
 }
 
@@ -159,10 +161,14 @@ a:hover {
   opacity: 0.8;
 }
 
-.cv .projects .title .dates {
+.cv .projects .title .links {
   margin-left: auto;
   opacity: 1;
   font-size: 0.9em;
+}
+
+.cv .projects .title .demo-links {
+  margin-left: 5px;
 }
 
 .cv .projects h5 {
@@ -170,8 +176,10 @@ a:hover {
   margin-right: 5px;
 }
 
-.cv .projects .title .dates .dash {
+.cv .projects .title .links .dash {
+  margin-left: 5px;
   font-weight: 1000;
+  font-size: 1.2rem;
 }
 
 .cv .projects .project-points {

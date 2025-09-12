@@ -78,3 +78,13 @@
   justify-content: center;
   gap: 30px;
 }
+
+.projects .source .key-field,
+.projects .demo .key-field {
+  flex: 1;
+}
+
+.projects .source .value-field,
+.projects .demo .value-field {
+  flex: 2;
+}

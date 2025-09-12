@@ -22,17 +22,7 @@ const ProfessionalObj = {
         {
           id: crypto.randomUUID(),
           point:
-            "Transitioned Stark Industries from weapons manufacturing to clean energy and high-tech solutions. Because the future shouldn’t be a war zone.",
-        },
-        {
-          id: crypto.randomUUID(),
-          point:
             "Founded the Avengers Initiative to assemble Earth's mightiest heroes. Basically, an exclusive club where the dress code is saving the world.",
-        },
-        {
-          id: crypto.randomUUID(),
-          point:
-            "Single-handedly neutralized rogue AI threats (including that one time Ultron almost ruined everything). Crisis management is my cardio.",
         },
       ],
     },

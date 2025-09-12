@@ -160,10 +160,51 @@ function Projects({ projects }) {
                 {obj.techStack}
                 {obj.techStack ? ")" : null}
               </span>
-              <span className="dates">
-                <span>{obj.startDate}</span>
-                {obj.endDate ? <span className="dash">-</span> : null}
-                <span>{obj.endDate}</span>
+
+              <span className="links">
+                {obj.sourceKey.length > 0 ? (
+                  <span className="source-links">
+                    <span>
+                      <a
+                        href={
+                          obj.sourceLink.startsWith("https://")
+                            ? obj.sourceLink
+                            : `https://${obj.sourceLink}`
+                        }
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {obj.sourceKey}
+                      </a>
+                    </span>
+                    {obj.endDate ? <span className="dash">-</span> : null}
+                    <span>{obj.endDate}</span>
+                  </span>
+                ) : null}
+
+                {obj.sourceKey.length > 0 && obj.demoKey.length > 0 ? (
+                  <span className="dash">|</span>
+                ) : null}
+
+                {obj.demoKey.length > 0 ? (
+                  <span className="demo-links">
+                    <span>
+                      <a
+                        href={
+                          obj.demoLink.startsWith("https://")
+                            ? obj.demoLink
+                            : `https://${obj.demoLink}`
+                        }
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {obj.demoKey}
+                      </a>
+                    </span>
+                    {obj.endDate ? <span className="dash">-</span> : null}
+                    <span>{obj.endDate}</span>
+                  </span>
+                ) : null}
               </span>
             </div>
             <ul className="project-points">
